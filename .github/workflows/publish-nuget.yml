@@ -15,4 +15,4 @@ jobs:
       - name: push tag
         run: |
           git tag v1.0.0
-          git push origin v1.0.0
+          git push "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" v1.0.0
