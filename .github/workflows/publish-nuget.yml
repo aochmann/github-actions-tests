@@ -8,12 +8,14 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}
         
       # uses https://github.com/marketplace/actions/publish-nuget that build, pack & publish 
       # nuget packages automatically when a project version is updated
       - name: push tag
         run: |
-          tag=2.0.0
+          tag=3.0.0
           git tag v$tag
           git push "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" v$tag
