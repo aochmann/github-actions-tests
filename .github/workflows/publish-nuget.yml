@@ -1,0 +1,17 @@
+name: Publish NuGet package
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        
+      # uses https://github.com/marketplace/actions/publish-nuget that build, pack & publish 
+      # nuget packages automatically when a project version is updated
+      - name: push tag
+        run: |
+          git tag v1.0.0
