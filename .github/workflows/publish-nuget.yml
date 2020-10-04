@@ -16,6 +16,6 @@ jobs:
       # nuget packages automatically when a project version is updated
       - name: push tag
         run: |
-          tag=3.0.0
+          tag=4.0.0
           git tag v$tag
           git push "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" v$tag
